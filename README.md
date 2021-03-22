@@ -1,39 +1,33 @@
 # Grouping
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/grouping`. To experiment with that code, run `bin/console` for an interactive prompt.
+Sample application to do grouping by either phone number or email for entries in CSV file.
 
-TODO: Delete this and the text above, and describe your gem
+Assumptions: If two rows have more that one matching for either email or phone number only the first occurrence of the matching pattern will be considered in grouping rows.
 
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'grouping'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install grouping
+Note: Currently only grouping by either email of phone number are supported
 
 ## Usage
 
-TODO: Write usage instructions here
+In a terminal window, when in projects' root diectory execute the  following command;
+
+```sh
+./bin/group <INPUT_CSV> <MATCHING_TYPE [Email|Phone]>
+```
+
+**Example** `.bin/group path/to/input.csv Email`
+
+Or you can execute the following Rake task;
+
+```sh
+bundle exec rake group[<INPUT_CSV>, <MATCHING_TYPE>]
+```
+
+**Example** `bundle exec rake group[path/to/input.csv, Email]`
+
+In the above commands, `MATCHING_TYPE` is a literal that currently only supports `Email` or `Phone`.
+
 
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/grouping.
-
-## License
-
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
